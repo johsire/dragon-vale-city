@@ -1,5 +1,5 @@
 
-const TRAITS = require('./traits.json')
+const TRAITS = require('../data/traits.json');
 
 const DEFAULT_PROPERTIES = {
    nickname: 'unnamed',

@@ -4,8 +4,8 @@
   "description": "full stack & full crud js project(dragonstack)",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "dev": "nodemon ."
+    "start": "node ./bin/server",
+    "dev": "nodemon ./bin/server"
   },
   "author": "Joh Maina",
   "license": "MIT",
