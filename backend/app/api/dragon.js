@@ -16,6 +16,7 @@ router.get('/new',(req, res) => {
 
        res.json({ dragon });
     })
+    .catch(error => console.error(error))
 });
 
 module.exports = router;

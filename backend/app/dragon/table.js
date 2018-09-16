@@ -9,13 +9,13 @@ class DragonTable {
      pool.query(
        `INSERT INTO dragon(birthdate, nickname, "generationId")
         VALUES($1, $2, $3) RETURNING id`,
-        [birthdate, nicknamem, generationId],
+        [birthdate, nickname, generationId],
         (error, response) => {
           if (error) return reject(error);
 
-          const draginId = response.rows[0].id;
+          const dragonId = response.rows[0].id;
 
-          resolve({ draginId });
+          resolve({ dragonId });
         }
       )
    });
