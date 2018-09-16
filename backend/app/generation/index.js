@@ -18,12 +18,12 @@ class Generation {
 
        // calculate new expiration date:
        return new Date(Date.now() + msUntilExpiration);
-   }
+   };
 
    newDragon() {
     if (Date.now() > this.expiration) {
      throw new Error(`This generation expired on ${this.expiration}`);
-    }
+    };
 
    return new Dragon;
    }
