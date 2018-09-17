@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./bin/server",
     "dev": "nodemon ./bin/server",
-    "confugure-dev": "npm run configure && npm run dev",
+    "configure-dev": "npm run configure && npm run dev",
     "configure": "./bin/configure_db.sh"
   },
   "author": "Joh Maina",

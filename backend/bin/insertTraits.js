@@ -1,6 +1,6 @@
 
 const pool = require('../databasePool');
-const TRAITS = require('../data/traits.json');
+const TRAITS = require('../data/traits');
 
 TRAITS.forEach(TRAIT => {
   const traitType = TRAIT.type;

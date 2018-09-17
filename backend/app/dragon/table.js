@@ -13,7 +13,6 @@ class DragonTable {
         [birthdate, nickname, generationId],
         (error, response) => {
           if (error) return reject(error);
-
           const dragonId = response.rows[0].id;
 
           Promise.all(dragon.traits.map(({ traitType, traitValue }) => {
