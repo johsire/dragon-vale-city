@@ -16,12 +16,11 @@ class DragonTable {
 
           const dragonId = response.rows[0].id;
 
-          promise.all(dragon.traits.map(({ traitType, traitValue }) => {
+          Promise.all(dragon.traits.map(({ traitType, traitValue }) => {
             return DragonTraitTable.storeDragonTrait({
                 dragonId, traitType, traitValue
             });
           }))
-          
           .then (() => resolve({ dragonId }))
           .catch(error => reject(error));
         }

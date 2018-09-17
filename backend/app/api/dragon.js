@@ -7,6 +7,7 @@ const router = new Router();
 // ENDPOINTS:
 router.get('/new',(req, res, next) => {
  const dragon = req.app.locals.engine.generation.newDragon();
+ console.log(dragon, 'ddrrraaggoonn');
 
  DragonTable.storeDragon(dragon)
     .then(({ dragonId }) => {
