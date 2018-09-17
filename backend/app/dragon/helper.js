@@ -29,7 +29,7 @@ const getDragonWithTraits = ({ dragonId }) => {
 
 // test our code:
 getDragonWithTraits({ dragonId: 1 })
-   .then(dragon => console.log('dragon', dragon))
-   .catch(error => console.error('error', error));
+   .then(dragon => console.log('dragonnn', dragon))
+   .catch(error => console.error('errorrrrr', error));
 
 module.exports = { getDragonWithTraits };
