@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "dragonstack-backend",
   "version": "1.0.0",
-  "description": "full stack & full crud js project(dragonstack)",
+  "description": "full stack & full crud project",
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/server",

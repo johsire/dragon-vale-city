@@ -25,9 +25,10 @@ class DragonTable {
         }
       )
    });
- }
+ };
 
  static getDragon({ dragonId }) {
+
     return new Promise((resolve, reject) => {
         pool.query(
             `SELECT bithdate, nickname, "generationId"
