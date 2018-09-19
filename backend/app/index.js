@@ -1,5 +1,6 @@
 
 const express = require('express');
+const cors = require('cors');
 const GenerationEngine = require('./generation/engine');
 const dragonRouter = require('./api/dragon');
 const generationRouter = require('./api/generation');
@@ -10,6 +11,11 @@ const engine = new GenerationEngine();
 
 // bind obj to the actual express applictn:
 app.locals.engine = engine;
+
+// Cross Origin Resource Sharing:
+// our backend server now has the same origin as the frontend: - 
+// - thus our server is implementing the same origin policy: eliminating crossing the origins:
+app.use(cors({ origin: 'http://localhost:1234' }));
 
 app.use('/dragon', dragonRouter);
 

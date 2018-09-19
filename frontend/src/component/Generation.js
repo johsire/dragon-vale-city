@@ -8,11 +8,16 @@ class Generation extends Component {
       this.fetchGeneration();
     };
     
-
     fetchGeneration = () => {
       fetch('http://localhost:3000/generation')
-        .then(response => console.log('response <==xxxx', response))
-    };
+        .then(response => response.json())
+        .then(json => { 
+          console.log('json <==xxx', json)
+
+        this.setState();      
+       })
+        .catch(error => console.error('error <==xxx', error)) 
+     };
 
   render() {
    const { generation } = this.state;
