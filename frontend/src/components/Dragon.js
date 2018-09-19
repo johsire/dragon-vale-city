@@ -27,11 +27,12 @@ class Dragon extends Component {
 
     return (
       <div>
-        <span> GEN { generationId }. </span>
-        <span> ID  { dragonId     }. </span>
+        <span> GEN: { generationId }. </span>
+        <span> ID:  { dragonId     }. </span>
         { traits.map(trait => trait.traitValue).join(', ') }
       </div>
     )
   }
 };
 
+export default Dragon;
