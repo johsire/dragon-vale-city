@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { skinny, slender, sporty, stocky, patchy, plain, spotted, srtiped } from '../assets';
+import { skinny, slender, sporty, stocky, patchy, plain, spotted, striped } from '../assets';
 
 const propertyMap = {
   backgroundColor: { 
@@ -19,6 +19,16 @@ const propertyMap = {
 };
 
 class DragonAvatar extends Component {
+  get DragonImage() {
+    return (
+      <div className="dragon-avatar-image-wrapper">
+        <div className="dragon-avatar-image-background" style={{ backgroundColor: propertyMap.backgroundColor.blue }}></div>
+        <img src={ propertyMap.pattern.spotted } className="dragon-avatar-image-pattern" />
+        <img src={ propertyMap.build.sporty } className="dragon-avatar-image" />
+      </div>
+    )
+  };
+
  render() {
   const { generationId, dragonId, traits } = this.props.dragon;
 
@@ -27,6 +37,7 @@ class DragonAvatar extends Component {
       <span> GEN: { generationId }. </span>
       <span> ID:  { dragonId     }. </span>
       { traits.map(trait => trait.traitValue).join(', ') }
+      { this.DragonImage }
     </div>
    )
   }
