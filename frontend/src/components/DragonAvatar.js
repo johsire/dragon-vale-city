@@ -20,11 +20,13 @@ const propertyMap = {
 
 class DragonAvatar extends Component {
   get DragonImage() {
+   const sizing = { width: 200, height: 200 };
+
     return (
       <div className="dragon-avatar-image-wrapper">
-        <div className="dragon-avatar-image-background" style={{ backgroundColor: propertyMap.backgroundColor.blue }}></div>
-        <img src={ propertyMap.pattern.spotted } className="dragon-avatar-image-pattern" />
-        <img src={ propertyMap.build.sporty } className="dragon-avatar-image" />
+        <div className="dragon-avatar-image-background" style={{ backgroundColor: propertyMap.backgroundColor.blue, sizing: sizing.height, sizing: sizing.width }}></div>
+        <img src={ propertyMap.pattern.spotted } className="dragon-avatar-image-pattern" style={{ sizing }} />
+        <img src={ propertyMap.build.sporty } className="dragon-avatar-image" style={{ sizing }} />
       </div>
     )
   };
