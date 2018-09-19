@@ -7,7 +7,7 @@ import './index.css';
 
 render (
     <div>
-      <h3>Dragons from React's Vale City</h3>
+      <h1>Dragon Vale City</h1>
       <Generation />
       <Dragon />
     </div>
