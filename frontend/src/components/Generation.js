@@ -8,13 +8,22 @@ class Generation extends Component {
  // we don't need to call constructor & super to initialize state:
     state = { generation: DEFAULT_GENERATION }
 
+    timer = null;
+
     // this ensures we kick off the loop by calling the next gen -
     //  which  in turn calls the 1st new gen then from there on its -
     // recarryingly calling itself everytime a new gen is created:
     componentDidMount() {
       this.fetchNextGeneration();
     };
+
+    // the opposite of compDidMount (unmounts n comp n clears it) so when the-
+    // user leaves this page the dragons gen creation loop engine stops as well:
+    componentWillUnmount() {
+      clearTimeout(this.timer);
+    };
     
+
     fetchGeneration = () => {
       fetch('http://localhost:3000/generation')
         .then(response => response.json())
@@ -35,7 +44,7 @@ class Generation extends Component {
           delay = MINIMUM_DELAY;
         };
 
-        setTimeout(() => this.fetchNextGeneration(), delay);
+        this.timer = setTimeout(() => this.fetchNextGeneration(), delay);
      };
 
   render() {
