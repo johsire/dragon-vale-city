@@ -10,7 +10,7 @@ class TraitTable {
          [traitType, traitValue],
          (error, response) => {
            if (error) return reject(error);
-           console.log(response, 'response=====+++++++!');
+          //  console.log(response, 'response <==xxxx!');
 
           const traitId = response.rows[0].id;
 
