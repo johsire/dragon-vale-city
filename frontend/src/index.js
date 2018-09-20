@@ -52,6 +52,12 @@ const zooAction = generationActionCreator({
 
 store.dispatch(zooAction);
 
+fetch('http://localhost:3000/generation')
+  .then(response => response.json())
+  .then(json => {
+    store.dispatch(generationActionCreator(json.generation))
+  });
+
 
 render (
     <div>
