@@ -9,11 +9,13 @@ import './index.css';
 
 const DEFAULT_GENERATION = { generationId: '', expiration: '' }
 
-const generationReducer = (state, action) => {
-  console.log('generationReducer state', state);
-  console.log('generationReducer action', action);
+const GENERATION_ACTION_TYPE = 'GENERATION_ACTION_TYPE';
 
-  if (action.type === 'GENERATION_ACTION_TYPE') {
+const generationReducer = (state, action) => {
+  // console.log('generationReducer state', state);
+  // console.log('generationReducer action', action);
+
+  if (action.type === GENERATION_ACTION_TYPE) {
     return { generation: action.generation }
   }
   
@@ -21,16 +23,35 @@ const generationReducer = (state, action) => {
 };
 
 const store = createStore(generationReducer);
+
+// subscribe to store takes a callback func - listener: 
+// it listens for updates/ changes in the App State;
+store.subscribe(() => console.log('store state update', store.getState()));
+
 // console.log('store', store);
-// console.log('store.getState()', store.getState());
+console.log('store.getState()', store.getState());
 
 store.dispatch({ type: 'foo'});
 store.dispatch({ 
-  type: 'GENERATION_ACTION_TYPE',
+  type: GENERATION_ACTION_TYPE,
   generation: { generationId: 'goo', expiration: 'bar'}
 });
 
-console.log('store.getState()', store.getState());
+// Action Creator is wrapped around the ACTION - 
+// its returning it in itself BUT its not the action creator itself.
+const generationActionCreator = (payload) => {
+  return {
+    type: GENERATION_ACTION_TYPE,
+    generation: payload
+  }
+};
+
+const zooAction = generationActionCreator({
+  generationId: 'zoo', expiration: 'bar'
+});
+
+store.dispatch(zooAction);
+
 
 render (
     <div>
