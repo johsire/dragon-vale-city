@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-const DEFAULT_GENERATION = { generationId: '', expiration: '' }
+import { generationActionCreator } from '../actions/generation';
 
 const MINIMUM_DELAY = 3000;
 
 class Generation extends Component {
  // we don't need to call constructor & super to initialize state:
-    state = { generation: DEFAULT_GENERATION }
-
     timer = null;
 
     // this ensures we kick off the loop by calling the next gen -
@@ -28,10 +25,9 @@ class Generation extends Component {
     fetchGeneration = () => {
       fetch('http://localhost:3000/generation')
         .then(response => response.json())
-        .then(json => { 
+        .then(json => {
+          this.props.dispatchGeneration(json.generation)
           console.log('json <==xxx', json)
-
-        this.setState({ generation: json.generation });      
        })
         .catch(error => console.error('error <==xxx', error)) 
      };
@@ -39,7 +35,7 @@ class Generation extends Component {
      fetchNextGeneration = () => {
         this.fetchGeneration();
 
-        let delay = new Date(this.state.generation.expiration).getTime() - new Date().getTime();
+        let delay = new Date(this.props.generation.expiration).getTime() - new Date().getTime();
 
         if (delay < MINIMUM_DELAY) {
           delay = MINIMUM_DELAY;
@@ -69,7 +65,15 @@ const mapStateToProps = state => {
   return { generation };
 };
 
-const componentConnector = connect(mapStateToProps);
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchGeneration: generation => dispatch(
+      generationActionCreator(generation)
+    )
+  }
+};
+
+const componentConnector = connect(mapStateToProps, mapDispatchToProps);
 
 // the connect fn takes in the class comp as a parameter;
 // we connect the component w/ the connect fn &
