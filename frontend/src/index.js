@@ -4,60 +4,25 @@ import { createStore } from 'redux';
 import { render } from 'react-dom';
 import Generation from './components/Generation';
 import Dragon from './components/Dragon';
+import { generationReducer } from './reducers';
+import { generationActionCreator } from './actions/generation';
 import './index.css';
 
 
-const DEFAULT_GENERATION = { generationId: '', expiration: '' }
+const store = createStore(
+  generationReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-const GENERATION_ACTION_TYPE = 'GENERATION_ACTION_TYPE';
-
-const generationReducer = (state, action) => {
-  // console.log('generationReducer state', state);
-  // console.log('generationReducer action', action);
-
-  if (action.type === GENERATION_ACTION_TYPE) {
-    return { generation: action.generation }
-  }
-  
-  return { generation: DEFAULT_GENERATION }
-};
-
-const store = createStore(generationReducer);
-
-// subscribe to store takes a callback func - listener: 
+// subscribe to store takes a callback func - listener:
 // it listens for updates/ changes in the App State;
-store.subscribe(() => console.log('store state update', store.getState()));
-
-// console.log('store', store);
-console.log('store.getState()', store.getState());
-
-store.dispatch({ type: 'foo'});
-store.dispatch({ 
-  type: GENERATION_ACTION_TYPE,
-  generation: { generationId: 'goo', expiration: 'bar'}
-});
-
-// Action Creator is wrapped around the ACTION - 
-// its returning it in itself BUT its not the action creator itself.
-const generationActionCreator = (payload) => {
-  return {
-    type: GENERATION_ACTION_TYPE,
-    generation: payload
-  }
-};
-
-const zooAction = generationActionCreator({
-  generationId: 'zoo', expiration: 'bar'
-});
-
-store.dispatch(zooAction);
+store.subscribe(() => console.log('store-state-update', store.getState()));
 
 fetch('http://localhost:3000/generation')
   .then(response => response.json())
   .then(json => {
     store.dispatch(generationActionCreator(json.generation))
   });
-
 
 render (
     <div>
