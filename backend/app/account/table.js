@@ -5,10 +5,10 @@ class AccountTable {
   static storeAccount({ username, password }) {
     return new Promise((resolve, reject) => {
       pool.query(
-       INSERT INTO AccountTable(username, password) VALUES($1, $2),
+       'INSERT INTO account (username, password) VALUES($1, $2)',
        [username, password],
        (error, response) => {
-         if (error) return reject(error):
+         if (error) return reject(error)
 
          resolve();
        }
