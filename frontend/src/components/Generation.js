@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 const DEFAULT_GENERATION = { generationId: '', expiration: '' }
 
@@ -48,7 +49,9 @@ class Generation extends Component {
      };
 
   render() {
-   const { generation } = this.state;
+   console.log('this.props', this.props)
+
+   const { generation } = this.props;
    // const generation = this.state.generation: this is the same as the line above ****<<<===| Clean code alert****
 
     return (
@@ -60,4 +63,15 @@ class Generation extends Component {
   }
 };
 
-export default Generation;
+const mapStateToProps = state => {
+  const generation = state.generation
+
+  return { generation };
+};
+
+const componentConnector = connect(mapStateToProps);
+
+// the connect fn takes in the class comp as a parameter;
+// we connect the component w/ the connect fn &
+//  return a component mixed with redux store state:
+export default componentConnector(Generation);

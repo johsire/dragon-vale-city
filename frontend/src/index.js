@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import Generation from './components/Generation';
 import Dragon from './components/Dragon';
@@ -25,10 +26,13 @@ fetch('http://localhost:3000/generation')
   });
 
 render (
+  <Provider store={store}>
     <div>
       <h1>Dragon Vale City</h1>
       <Generation />
       <Dragon />
     </div>
+  </Provider>
+    
   ,document.getElementById('root')
 );
