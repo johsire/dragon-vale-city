@@ -54,16 +54,13 @@ const mapStateToProps = state => {
   return { generation };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    dispatchGeneration: generation => dispatch(
-      generationActionCreator(generation)
-    ),
-    fetchGeneration: () => fetchGeneration(dispatch)
-  }
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchGeneration: () => fetchGeneration(dispatch)
+//   }
+// };
 
-const fetchGeneration = dispatch => {
+const fetchGeneration = () => dispatch => {
   return fetch('http://localhost:3000/generation')
     .then(response => response.json())
     .then(json => {
@@ -72,7 +69,10 @@ const fetchGeneration = dispatch => {
     .catch(error => console.error('error<==xx', error));
 };
 
-const componentConnector = connect(mapStateToProps, mapDispatchToProps);
+const componentConnector = connect(
+  mapStateToProps, 
+  { fetchGeneration }
+);
 
 // the connect fn takes in the class comp as a parameter;
 // we connect the component w/ the connect fn &
