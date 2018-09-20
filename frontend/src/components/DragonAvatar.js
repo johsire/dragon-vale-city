@@ -47,9 +47,9 @@ class DragonAvatar extends Component {
 
     return (
       <div>
-        <span>Gen: { generationId }. </span>
-        <span>Id: { dragonId }. </span>
-        { traits.map(trait => trait.traitValue).join(', ') }
+        <span>GEN# { generationId }. </span>
+        <span>ID# { dragonId }. </span>
+        { traits.map(trait => trait.traitValue).join(',  ') }
         { this.DragonImage }
       </div>
     )

@@ -1,5 +1,6 @@
 
 import { GENERATION } from './types';
+import { BACKEND } from '../config';
 
 // Action Creator is wrapped around the ACTION -
 // its returning it in itself BUT its not the action creator itself.
@@ -13,7 +14,7 @@ import { GENERATION } from './types';
 export const fetchGeneration = () => dispatch => {
   dispatch({ type: GENERATION.FETCH });
 
-  return fetch('http://localhost:3000/generation')
+  return fetch(`${ BACKEND.ADDRESS }/generation`)
     .then(response => response.json())
     .then(json => {
       if(json.type === 'error') {
