@@ -7,7 +7,7 @@ class DragonTable {
    const { birthdate, nickname, generationId } = dragon;
 
    return new Promise((resolve, reject) => {
-     pool.query(
+      pool.query(
        `INSERT INTO dragon(birthdate, nickname, "generationId")
         VALUES($1, $2, $3) RETURNING id`,
         [birthdate, nickname, generationId],
@@ -46,9 +46,5 @@ class DragonTable {
     });
   }
 };
-
-// DragonTable.getDragon({ dragonId: 1 })
-//     .then(dragon => console.log(dragon))
-//     .catch(error => console.error('We got an error', error));
 
 module.exports = DragonTable;

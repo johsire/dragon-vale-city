@@ -26,7 +26,7 @@ class AccountTable {
         (error, response) => {
           if (error) return reject(error);
 
-          resolve({ account: response.rows[0]});
+          resolve({ account: response.rows[0] });
         }
       )
     });
@@ -35,9 +35,9 @@ class AccountTable {
   static updateSessionId({ sessionId, usernameHash }) {
     return new Promise((resolve, reject) => {
       pool.query(
-        `UPDATE  account 
-         SET    "sessionId" = $1 
-         WHERE  "usenameHash" = $2`
+         `UPDATE account 
+          SET "sessionId" = $1 
+          WHERE "usernameHash" = $2`,
          [sessionId, usernameHash],
          (error, response) => {
            if (error) return reject(error);
