@@ -2,6 +2,7 @@
 const { Router } = require('express');
 const AccountTable = require('../account/table');
 const { hash } = require('../account/helper');
+const Session = require('../account/session');
 
 const router = new Router();
 
@@ -13,18 +14,28 @@ router.post('/signup', (req, res, next) => {
  AccountTable.getAccount({ usernameHash })
   .then(({ account }) => {
     if (!account) {
-      AccountTable.storeAccount({ usernameHash, passwordHash })
-        .then(() => res.json({ message: 'Success!!' }))
-        .catch(error => next(error));
+      return AccountTable.storeAccount({ usernameHash, passwordHash })
     } else {
       const error = new Error('This username is already taken');
 
       error.statusCode = 409;
-    };
-  });
 
-  AccountTable.storeAccount({ usernameHash, passwordHash })
-    .then(() => res.json({ message: 'success!' }))
+        throw error;
+      }
+    })
+    .then(() => {
+      const session = new Session({ username });
+      const sessionString = session.toString();
+
+      res.cookie('sessionString', sessionString, {
+        expire: Date.now() + 3600000,
+        httpOnly: true,
+        // secure: true  use with https
+      });
+
+
+      res.json({ message: 'success!' })
+    })
     .catch(error => next(error));
 });
 
