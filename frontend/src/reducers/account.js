@@ -22,7 +22,7 @@ const account = (state = DEFAULT_ACCOUNT, action) => {
 
     default:
      return state;
-  }
+  };
 };
 
 export default account;
