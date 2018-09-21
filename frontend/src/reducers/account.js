@@ -20,6 +20,14 @@ const account = (state = DEFAULT_ACCOUNT, action) => {
        loggedIn: true 
      };
 
+    case ACCOUNT.FETCH_LOGOUT_SUCCESS:
+     return { 
+      ...state, 
+      status: fetchStates.success,
+      message: action.message, 
+      loggedIn: false  
+     };
+
     default:
      return state;
   };
