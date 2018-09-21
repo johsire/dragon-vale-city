@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
 import { signup } from '../actions/account';
+import fetchStates from '../reducers/fetchStates';
 
 
 class AuthForm extends Component {
@@ -25,6 +26,12 @@ class AuthForm extends Component {
  login = () => {
   console.log('login', this.state);
 };
+
+get Error() {
+  if (this.props.account.status === fetchStates.error) {
+     return <div>{ this.props.account.message }</div>
+  }
+}
 
   render() {
     return (
@@ -51,9 +58,13 @@ class AuthForm extends Component {
           <span> or </span>
           <Button onClick={ this.signup }>Sign Up</Button>
         </div>
+        <br />
+        { this.Error }
      </div>
     );
   };
 };
 
-export default connect(null, { signup })(AuthForm);
+export default connect(
+  ({ account }) => ({ account }), 
+  { signup })(AuthForm);
