@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
 import { signup } from '../actions/account';
 
+
 class AuthForm extends Component {
  state = { username: '', password: '' };
 
@@ -17,7 +18,7 @@ class AuthForm extends Component {
 
  signup = () => {
    const { username, password } = this.state;
-   
+
    this.props.signup({ username, password });
  };
 
@@ -31,7 +32,7 @@ class AuthForm extends Component {
        <h2>Dragon Vale City</h2>
         <FormGroup>
           <FormControl 
-            type='text'
+            type='text' 
             value={ this.state.username }
             placeholder='username'
             onChange={ this.updateUsername }

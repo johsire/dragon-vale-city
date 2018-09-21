@@ -15,7 +15,7 @@ const account = (state = DEFAULT_ACCOUNT, action) => {
     case ACCOUNT.FETCH_SUCCESS:
       return { 
        ...state, 
-       status: fatchStates.success,
+       status: fetchStates.success,
        message: action.message, 
        loggedIn: true 
      };
