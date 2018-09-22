@@ -16,7 +16,7 @@ router.post('/signup', (req, res, next) => {
     if (!account) {
       return AccountTable.storeAccount({ usernameHash, passwordHash })
     } else {
-      const error = new Error('This username is already t aken');
+      const error = new Error('This username has already been taken!');
 
       error.statusCode = 409;
 
