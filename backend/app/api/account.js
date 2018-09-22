@@ -16,7 +16,7 @@ router.post('/signup', (req, res, next) => {
     if (!account) {
       return AccountTable.storeAccount({ usernameHash, passwordHash })
     } else {
-      const error = new Error('This username is already taken');
+      const error = new Error('This username is already t aken');
 
       error.statusCode = 409;
 
@@ -55,7 +55,7 @@ router.post('/login', (req, res, next) => {
 router.get('/authenticated', (req, res, next) => {
   const { sessionString } = req.cookies;
 
-  if (!sessionString || !sessionStorage.verify(sessionString)) {
+  if (!sessionString || !Session.verify(sessionString)) {
     const error = new Error('Invalid Session');
 
     error.statusCode = 400;

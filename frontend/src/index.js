@@ -6,8 +6,8 @@ import { render } from 'react-dom';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import Root from './components/Root';
+import { fetchAuthenticated } from './actions/account';
 import './index.css';
-// import { generationActionCreator } from './actions/generation';
 
 
 const store = createStore(
@@ -16,19 +16,12 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-// subscribe to store takes a callback func - listener:
-// it listens for updates/ changes in the App State;
-// store.subscribe(() => console.log('store-state-update', store.getState()));
-
-// fetch('http://localhost:3000/generation')
-//   .then(response => response.json())
-//   .then(json => {
-//     store.dispatch(generationActionCreator(json.generation))
-//   });
-
-render (
-  <Provider store={store}>
-    <Root />
-  </Provider>
-,document.getElementById('root')
-);
+store.dispatch(fetchAuthenticated())
+  .then(() => {
+    render (
+      <Provider store={store}>
+        <Root />
+      </Provider>
+    ,document.getElementById('root')
+    );
+  });
