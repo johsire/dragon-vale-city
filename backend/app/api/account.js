@@ -75,7 +75,7 @@ router.get('/authenticated', (req, res, next) => {
   }
 });
 
-router.get('/logout', (re, res, next) => {
+router.get('/logout', (req, res, next) => {
   // We call the parse function on Session; its a static fn that splits
   // up a session string n returns an object with the relevant parts;
   const { username } = Session.parse(req.cookies.sessionString);
