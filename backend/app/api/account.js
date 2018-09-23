@@ -64,7 +64,7 @@ router.get('/authenticated', (req, res, next) => {
     return next(error);
   } else {
     const { username, id } = Session.parse(sessionString);
-    console.log(hash(username), 'username hash IN ELSE STATEMENT');
+    // console.log(hash(username), 'username hash IN ELSE STATEMENT');
 
   AccountTable.getAccount({ usernameHash: hash(username) })
     .then(({ account }) => {
