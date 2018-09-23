@@ -4,8 +4,9 @@ import { BACKEND } from '../config';
 
 const fetchFromAccount = ({ endpoint, options, SUCCESS_TYPE }) => dispatch => {
   dispatch({ type: ACCOUNT.FETCH });
+  console.log(options, endpoint, '<==== IN ACTIONS');
 
-  return fetch(`${BACKEND.ADDRESS}/account/${endpoint}`, options)
+  return fetch(`${ BACKEND.ADDRESS }/account/${ endpoint }`, options)
     .then(response => response.json())
     .then(json => {
       if (json.type === 'error') {

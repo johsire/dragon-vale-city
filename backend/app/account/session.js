@@ -50,8 +50,8 @@ const foo = new Session({ username: 'foo'});
 
 const fooString = foo.toString();
 
-console.log('Session.parse(fooString', Session.parse(fooString));
+// console.log('Session.parse(fooString', Session.parse(fooString));
 
-console.log(Session.verify(fooString));
+// console.log(Session.verify(fooString));
 
 module.exports = Session;

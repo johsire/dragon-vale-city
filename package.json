@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/johsire/dragonstack-vr-app/issues"
   },
-  "homepage": "https://github.com/johsire/dragonstack-vr-app#readme"
+  "homepage": "https://github.com/johsire/dragonstack-vr-app#readme",
+  "dependencies": {}
 }

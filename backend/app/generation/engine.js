@@ -25,7 +25,7 @@ class GenerationEngine {
 
         this.generation.generationId = generationId;
 
-        console.log(this.generation, 'New Generation Objs');
+        // console.log(this.generation, 'fetch New Generation');
 
         this.timer = setTimeout(
           () => this.buildNewGeneration(),
