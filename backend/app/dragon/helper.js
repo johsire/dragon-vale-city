@@ -8,15 +8,15 @@ const getDragonWithTraits = ({ dragonId }) => {
     DragonTable.getDragon({ dragonId }),
     new Promise((resolve, reject) => {
       pool.query(
-         `SELECT "traitType", "traitValue"
-          FROM trait
-          INNER JOIN dragonTrait ON trait.id = dragonTrait."traitId"
-          WHERE dragonTrait."dragonId" = $1`,
-          [dragonId],
-          (error, response) => {
-            if (error) return reject(error);
+        `SELECT "traitType", "traitValue"
+         FROM trait
+         INNER JOIN dragonTrait ON trait.id = dragonTrait."traitId"
+         WHERE dragonTrait."dragonId" = $1`,
+        [dragonId],
+        (error, response) => {
+          if (error) return reject(error);
 
-            resolve(response.rows);
+          resolve(response.rows);
          }
       )
     })

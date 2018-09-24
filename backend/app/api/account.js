@@ -4,7 +4,8 @@ const AccountTable = require('../account/table');
 const AccountDragonTable = require('../accountDragon/table');
 const Session = require('../account/session');
 const { hash } = require('../account/helper');
-const { setSession, authenticatedAccount } = require('./helper')
+const { setSession, authenticatedAccount } = require('./helper');
+const { getDragonWithTraits } = require('../dragon/helper');
 
 const router = new Router();
 
@@ -82,10 +83,24 @@ router.get('/dragons', (req, res, next) => {
   .then(({ account }) => {
     return AccountDragonTable.getAccountDragons({
       accountId: account.id
-    })
+    });
   })
   .then(({ accountDragons }) => res.json({ accountDragons }))
   .catch(error => console.error(error));
+
+
+
+  // .then(({ accountDragons }) => {
+  //   return Promise.all(
+  //     accountDragons.map(accountDragon => {
+//   //       return getDragonWithTraits({ dragonId: accountDragon.dragonId });
+//       })
+//     );
+//     })
+//   .then(dragons => {
+//     res.json({ dragons });
+//   })
+//   .catch(error => next(error));
 });
 
 module.exports = router;
