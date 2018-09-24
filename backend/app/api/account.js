@@ -1,9 +1,9 @@
 
 const { Router } = require('express');
-const Session = require('../account/session');
 const AccountTable = require('../account/table');
+const Session = require('../account/session');
 const { hash } = require('../account/helper');
-const { setSession } = require('./helper')
+const { setSession, authenticatedAccount } = require('./helper')
 
 const router = new Router();
 
@@ -50,29 +50,7 @@ router.post('/login', (req, res, next) => {
       }
     })
     .then(({ message }) => res.json({ message }))
-    .catch(error => next(error));
-});
-
-router.get('/authenticated', (req, res, next) => {
-  const { sessionString } = req.cookies;
-
-  if (!sessionString || !Session.verify(sessionString)) {
-    const error = new Error('Invalid Session');
-
-    error.statusCode = 400;
-
-    return next(error);
-  } else {
-    const { username, id } = Session.parse(sessionString);
-    // console.log(hash(username), 'username hash IN ELSE STATEMENT');
-
-  AccountTable.getAccount({ usernameHash: hash(username) })
-    .then(({ account }) => {
-      const authenticated = account.sessionId === id;
-      res.json({ authenticated });
-    })
-    .catch(error => next (error));
-  }
+    .catch(error => reject(error));
 });
 
 router.get('/logout', (req, res, next) => {
@@ -88,6 +66,14 @@ router.get('/logout', (req, res, next) => {
 
     res.json({ message: 'Successful Logout!' })
   }).catch(error => next(error));
+});
+
+router.get('/authenticated', (req, res, next) => {
+  const { sessionString } = req.cookies;
+
+  authenticatedAccount({ sessionString })
+    .then(({ authenticated }) => res.json({ authenticated }))
+    .catch(error => next(error));
 });
 
 module.exports = router;

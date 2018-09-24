@@ -39,4 +39,26 @@ const setSessionCookie = ({ sessionString, res }) => {
     });
 };
 
-module.exports = { setSession };
+const authenticatedAccount = ({ sessionString }) => {
+  return new Promise ((resolve, reject) => {
+    if (!sessionString || !Session.verify(sessionString)) {
+      const error = new Error('Invalid Session');
+  
+      error.statusCode = 400;
+  
+      return next(error);
+    } else {
+      const { username, id } = Session.parse(sessionString);
+      // console.log(hash(username), 'username hash IN ELSE STATEMENT');
+  
+    AccountTable.getAccount({ usernameHash: hash(username) })
+      .then(({ account }) => {
+        const authenticated = account.sessionId === id;
+        resolve({ account, authenticated });
+      })
+      .catch(error => reject(error));
+    }
+  })
+};
+
+module.exports = { setSession, authenticatedAccount };
