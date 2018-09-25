@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
-// import { Link } from 'react-router-dom'
 import Generation from './Generation';
 import Dragon from './Dragon';
 import AccountDragons from './AccountDragons';

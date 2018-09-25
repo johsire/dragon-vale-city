@@ -15,7 +15,7 @@ class AccountDragons extends Component {
     </div>
   )
  }
-}
+};
 
 export default connect(
   ({ AccountDragons }) => ({ AccountDragons }),

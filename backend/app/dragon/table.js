@@ -28,12 +28,11 @@ class DragonTable {
  };
 
  static getDragon({ dragonId }) {
-
     return new Promise((resolve, reject) => {
         pool.query(
-            `SELECT bithdate, nickname, "generationId"
+            `SELECT birthdate, nickname, "generationId"
              FROM dragon
-             WHERE dragon.id = $1`
+             WHERE dragon.id = $1`,
              [dragonId],
              (error, response) => {
                 if (error) return reject(error);
