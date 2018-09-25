@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Dragon from './Dragon';
 import Generation from './Generation';
+import AccountInfo from './AccountInfo';
 import { logout } from '../actions/account';
 
 class Home extends Component {
@@ -17,6 +18,8 @@ class Home extends Component {
         <h2>Dragon Stack</h2>
         <Generation />
         <Dragon />
+        <hr />
+        <AccountInfo />
         <hr />
         <Link to='/account-dragons'>Account Dragons</Link>
       </div>
