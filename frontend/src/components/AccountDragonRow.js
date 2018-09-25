@@ -25,11 +25,11 @@ class AccountDragonRow extends Component {
   updateNickname = event => {
     this.setState({ nickname: event.target.value });
   };
-
-  toggleEdit = () => {
+  
+  toogleEdit = () => {
     this.setState({ edit: !this.state.edit });
   };
-
+  
   // deleteNickname = event => {
   //   this.setState({ nickname: event.target.value })
   // };
@@ -38,7 +38,7 @@ class AccountDragonRow extends Component {
   //   this.setState({ delete: !this.state.delete });
   // };
 
-  render() {
+ render() {
     return (
       <div>
         <input
@@ -48,11 +48,11 @@ class AccountDragonRow extends Component {
           disabled={!this.state.edit}
         />
         <br />
-        <DragonAvatar dragon={this.props.dragon} />
+        <DragonAvatar dragon={this.props.dragon} /> 
         {
           this.state.edit ? this.SaveButton : this.EditButton
         }
-        </div>
+      </div>
     )
   }
 };
