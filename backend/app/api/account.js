@@ -33,7 +33,6 @@ router.post('/signup', (req, res, next) => {
     .catch(error => next(error));
 });
 
-
 router.post('/login', (req, res, next) => {
   const { username, password } = req.body;
 
@@ -41,17 +40,18 @@ router.post('/login', (req, res, next) => {
     .then(({ account }) => {
       if (account && account.passwordHash === hash(password)) {
         const { sessionId } = account;
-
+      
         return setSession({ username, res, sessionId })
       } else {
-        const error = new Error ('Invalid username/password');
+        const error = new Error('Incorrect username/password');
 
         error.statusCode = 409;
+
         throw error;
       }
     })
     .then(({ message }) => res.json({ message }))
-    .catch(error => reject(error));
+    .catch(error => next(error));
 });
 
 router.get('/logout', (req, res, next) => {
@@ -65,14 +65,12 @@ router.get('/logout', (req, res, next) => {
   }).then(() => {
     res.clearCookie('sesssionString');
 
-    res.json({ message: 'Successful Logout!' })
+    res.json({ message: 'Successful logout!' })
   }).catch(error => next(error));
 });
 
 router.get('/authenticated', (req, res, next) => {
-  const { sessionString } = req.cookies;
-
-  authenticatedAccount({ sessionString })
+  authenticatedAccount({ sessionString: req.cookies.sessionString })
     .then(({ authenticated }) => res.json({ authenticated }))
     .catch(error => next(error));
 });
