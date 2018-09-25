@@ -49,7 +49,7 @@ class DragonTable {
     const settingsMap = { nickname, isPublic, saleValue };
 
     const validQueries = Object.entries(settingsMap).filter(([settingKey, settingValue]) => {
-      console.log('settingKey', settingKey, 'settingValue', settingValue);
+      // console.log('settingKey', settingKey, 'settingValue', settingValue);
 
       if (settingValue !== undefined) {
         return new Promise((resolve, reject) => {
