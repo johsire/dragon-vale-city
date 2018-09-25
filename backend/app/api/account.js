@@ -47,7 +47,6 @@ router.post('/login', (req, res, next) => {
         const error = new Error ('Invalid username/password');
 
         error.statusCode = 409;
-
         throw error;
       }
     })
@@ -80,27 +79,22 @@ router.get('/authenticated', (req, res, next) => {
 
 router.get('/dragons', (req, res, next) => {
   authenticatedAccount({ sessionString: req.cookies.sessionString })
-  .then(({ account }) => {
-    return AccountDragonTable.getAccountDragons({
-      accountId: account.id
-    });
-  })
-  .then(({ accountDragons }) => res.json({ accountDragons }))
-  .catch(error => console.error(error));
-
-
-
-  // .then(({ accountDragons }) => {
-  //   return Promise.all(
-  //     accountDragons.map(accountDragon => {
-//   //       return getDragonWithTraits({ dragonId: accountDragon.dragonId });
-//       })
-//     );
-//     })
-//   .then(dragons => {
-//     res.json({ dragons });
-//   })
-//   .catch(error => next(error));
+    .then(({ account }) => {
+      return AccountDragonTable.getAccountDragons({
+        accountId: account.id
+      });
+    })
+    .then(({ accountDragons }) => {
+      return Promise.all(
+        accountDragons.map(accountDragon => {
+          return getDragonWithTraits({ dragonId: accountDragon.dragonId });
+        })
+      );
+    })
+    .then(dragons => {
+      res.json({ dragons });
+    })
+    .catch(error => next(error));
 });
 
 module.exports = router;
