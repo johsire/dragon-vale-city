@@ -29,6 +29,6 @@ class AccountDragons extends Component {
 };
 
 export default connect(
-  ({ AccountDragons }) => ({ AccountDragons }),
+  ({ accountDragons }) => ({ accountDragons }),
   { fetchAccountDragons }
 )(AccountDragons);
