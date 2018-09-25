@@ -10,6 +10,22 @@ class AccountDragonRow extends Component {
     // delete: false
   };
 
+  updateNickname = event => {
+    this.setState({ nickname: event.target.value });
+  };
+    
+  // deleteNickname = event => {
+  //   this.setState({ nickname: event.target.value })
+  // };
+
+  toogleEdit = () => {
+    this.setState({ edit: !this.state.edit });
+  };
+
+  // toogleDelete = () => {
+  //   this.setState({ delete: !this.state.delete });
+  // };
+
   get SaveButton() {
     return <Button>Save</Button>;
   };
@@ -22,21 +38,6 @@ class AccountDragonRow extends Component {
   //   return <Button onClick={this.toogleDelete}>Delete</Button>
   // };
 
-  updateNickname = event => {
-    this.setState({ nickname: event.target.value });
-  };
-  
-  toogleEdit = () => {
-    this.setState({ edit: !this.state.edit });
-  };
-  
-  // deleteNickname = event => {
-  //   this.setState({ nickname: event.target.value })
-  // };
-
-  // toogleDelete = () => {
-  //   this.setState({ delete: !this.state.delete });
-  // };
 
  render() {
     return (
