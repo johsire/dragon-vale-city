@@ -13,12 +13,15 @@ class AccountDragons extends Component {
   return (
     <div>
       <h3>Account Dragons</h3>
+      <br />
       {
         this.props.accountDragons.dragons.map(dragon => {
           return (
             <div key={dragon.dragonId}>
               <AccountDragonRow dragon={dragon} />
+              <br />
               <hr />
+              {/* <br /> */}
             </div>
           )
         })
