@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 // import { Link } from 'react-router-dom'
 import Generation from './Generation';
 import Dragon from './Dragon';
-// import AccountInfo from './AccountInfo';
+import AccountDragons from './AccountDragons';
 import { logout } from '../actions/account';
 
 class Home extends Component {
@@ -17,7 +17,8 @@ class Home extends Component {
         <h2>Dragon Stack</h2>
         <Generation />
         <Dragon />
-        <hr />
+        <br />
+        <AccountDragons />
       </div>
     );
   }

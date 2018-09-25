@@ -8,7 +8,10 @@ class Dragon extends Component {
   render() {
     return (
       <div>
+        <br />
         <Button onClick={ this.props.fetchDragon }>New Dragon</Button>
+        <br />
+        <br />
         <DragonAvatar dragon={this.props.dragon} />
       </div>
     );
