@@ -1,6 +1,6 @@
 
 const pool = require('../../databasePool');
-const DragonTable = require('../dragonTrait/table');
+const DragonTable = require('../dragon/table');
 const Dragon = require('./index');
 
 const getDragonWithTraits = ({ dragonId }) => {
@@ -17,12 +17,12 @@ const getDragonWithTraits = ({ dragonId }) => {
           if (error) return reject(error);
 
           resolve(response.rows);
-         }
+        }
       )
     })
   ])
-  .then(([ dragon, dragonTraits ]) => {
-   return new Dragon({ ...dragon, dragonId, traits: dragonTraits })
+  .then(([dragon, dragonTraits]) => {
+    return new Dragon({ ...dragon, dragonId, traits: dragonTraits })
   })
   .catch(error => console.error(error));
 };

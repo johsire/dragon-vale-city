@@ -8,8 +8,8 @@ const accountDragons = (state = DEFAULT_ACCOUNT_DRAGONS, action) => {
  switch(action.type) {
   case ACCOUNT_DRAGONS.FETCH:
    return {
-    ...state, status:
-    fetchStates.fetching
+    ...state,
+    status: fetchStates.fetching
    };
   case ACCOUNT_DRAGONS.FETCH_ERROR:
    return {
