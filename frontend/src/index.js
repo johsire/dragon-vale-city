@@ -12,6 +12,8 @@ import AccountDragons from './components/AccountDragons';
 import { fetchAuthenticated } from './actions/account';
 import './index.css';
 
+import { fetchPublicDragons } from './actions/publicDragons';
+
 
 const history = createBrowserHistory();
 
@@ -20,6 +22,8 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk)
 );
+
+store.dispatch(fetchPublicDragons());
 
 const AuthRoute = (props) => {
   if (!store.getState().account.loggedIn) {
