@@ -1,6 +1,6 @@
 
 const pool = require('../../databasePool');
-const DragonTable = require('../dragon/table');
+const DragonTable = require('./table');
 const Dragon = require('./index');
 
 const getDragonWithTraits = ({ dragonId }) => {
@@ -18,7 +18,7 @@ const getDragonWithTraits = ({ dragonId }) => {
 
           resolve(response.rows);
         }
-      ) 
+      )
     })
   ])
   .then(([dragon, dragonTraits]) => {
@@ -38,13 +38,13 @@ const getPublicDragons = () => {
 
         Promise.all(
           publicDragonRows.map(
-            ({ id }) => getDragonWithTraits({ dragonId })
+            ({ id }) => getDragonWithTraits({ dragonId: id })
           )
         ).then(dragons => resolve({ dragons }))
          .catch(error => reject(error));
       }
     )
-  })
+  });
 }
 
 module.exports = { getDragonWithTraits, getPublicDragons };

@@ -90,11 +90,11 @@ router.get('/dragons', (req, res, next) => {
       );
     })
     .then(dragons => {
-      console.log(dragons, '<---- SERVER');
+      // console.log(dragons, '<---- SERVER');
       res.json({ dragons });
     })
     .catch(error => {
-      console.log(dragons, '<---- ERROR SERVER');
+      // console.log(dragons, '<---- ERROR SERVER');
       next(error)
     });
 });
