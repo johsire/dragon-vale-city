@@ -18,7 +18,7 @@ const getDragonWithTraits = ({ dragonId }) => {
 
           resolve(response.rows);
         }
-      )
+      ) 
     })
   ])
   .then(([dragon, dragonTraits]) => {
@@ -27,4 +27,24 @@ const getDragonWithTraits = ({ dragonId }) => {
   .catch(error => console.error(error));
 };
 
-module.exports = { getDragonWithTraits };
+const getPublicDragons = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      'SELECT id FROM dragon WHERE "isPublic" = TRUE',
+      (error, response) => {
+        if (error) return reject(error);
+
+        const publicDragonRows = response.rows;
+
+        Promise.all(
+          publicDragonRows.map(
+            ({ id }) => getDragonWithTraits({ dragonId })
+          )
+        ).then(dragons => resolve({ dragons }))
+         .catch(error => reject(error));
+      }
+    )
+  })
+}
+
+module.exports = { getDragonWithTraits, getPublicDragons };

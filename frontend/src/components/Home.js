@@ -15,13 +15,15 @@ class Home extends Component {
         <Button onClick={this.props.logout} className='logout-button'>
           Log Out
         </Button>
+        <Link to='/account-dragons'>Account Dragons</Link>
+        <br />
+        <Link to='/public-dragons'>Public Dragons</Link>
         <h2>Dragon Stack</h2>
         <Generation />
         <Dragon />
         <hr />
         <AccountInfo />
         <hr />
-        <Link to='/account-dragons'>Account Dragons</Link>
       </div>
     );
   }

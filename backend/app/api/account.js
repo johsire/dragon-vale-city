@@ -40,7 +40,7 @@ router.post('/login', (req, res, next) => {
     .then(({ account }) => {
       if (account && account.passwordHash === hash(password)) {
         const { sessionId } = account;
-      
+
         return setSession({ username, res, sessionId })
       } else {
         const error = new Error('Invalid username/password');
@@ -90,9 +90,13 @@ router.get('/dragons', (req, res, next) => {
       );
     })
     .then(dragons => {
+      console.log(dragons, '<---- SERVER');
       res.json({ dragons });
     })
-    .catch(error => next(error));
+    .catch(error => {
+      console.log(dragons, '<---- ERROR SERVER');
+      next(error)
+    });
 });
 
 router.get('/info', (req, res, next) => {
