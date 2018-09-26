@@ -1,8 +1,10 @@
+// dev-dependencies imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+// components imports
 import Dragon from './Dragon';
 import Generation from './Generation';
 import AccountInfo from './AccountInfo';
