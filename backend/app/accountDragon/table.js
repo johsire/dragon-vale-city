@@ -59,4 +59,12 @@ class AccountDragonTable {
   };
 };
 
+AccountDragonTable.getDragonAccount({ dragonId: 3 })
+  .then(({ accountId }) => console.log('AcctId', accountId))
+  .catch(error => console.error(error, 'err <==xxx'));
+  
+AccountDragonTable.updateDragonAccount({ dragonId: 2, accountId: 2 })
+  .then(() => console.log('Successss@@!!'))
+  .catch(error => console.error(error, 'errr <<xx==xx'))
+
 module.exports = AccountDragonTable;
