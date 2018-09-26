@@ -2,8 +2,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
+
+// Component Imports:
 import { signup, login } from '../actions/account';
 import fetchStates from '../reducers/fetchStates';
+
+// Style Imports
+import { Container, FormWrapper } from './AuthFormStyles';
 
 
 class AuthForm extends Component {
@@ -44,7 +49,8 @@ get Error() {
 
   render() {
     return (
-     <div>
+    <Container>
+      <FormWrapper>
        <h2>Dragon Vale City</h2>
         <FormGroup>
           <FormControl 
@@ -69,7 +75,8 @@ get Error() {
         </div>
         <br />
         { this.Error }
-     </div>
+        </FormWrapper>
+     </Container>
     );
   };
 };

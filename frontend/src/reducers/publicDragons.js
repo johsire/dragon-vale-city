@@ -4,7 +4,7 @@ import fetchStates from './fetchStates';
 
 const DEFAULT_PUBLIC_DRAGONS = { dragons: [] };
 
-const publicDragons = (state = DEFAULT_PUBLIC_DRAGONS, action) {
+const publicDragons = (state = DEFAULT_PUBLIC_DRAGONS, action) => {
  switch(action.type){
   case PUBLIC_DRAGONS.FETCH:
    return { ...state, status: fetchStates.fetching 
