@@ -15,11 +15,12 @@ export const Container = styled.div`
 
 export const FormWrapper = styled.div`
    max-width: 600px;
-   background-color: #cc5f03;
+//    background-color: #cc5f03;
    display: grid;
    margin: 0 auto;
    text-align: center;
    padding: 30px;
    border-radius: 10px;
    opacity: 0.7;
+   color: white;
 `;

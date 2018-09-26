@@ -15,6 +15,10 @@ class PublicDragons extends Component {
     return (
       <div>
         <h3>Public Dragons</h3>
+        <br />
+        <Link to='/'>Home</Link>
+        <br />
+        <br />
         {
           this.props.publicDragons.dragons.map(dragon => {
             return (
@@ -25,7 +29,6 @@ class PublicDragons extends Component {
             )
           })
         }
-        <Link to='/'>Home</Link>
       </div>
     )
   }

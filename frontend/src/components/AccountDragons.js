@@ -15,6 +15,9 @@ class AccountDragons extends Component {
     <div>
       <h3>Account Dragons</h3>
       <br />
+      <Link to='/'>Home</Link>
+      <br />
+      <br />
       {
         this.props.accountDragons.dragons.map(dragon => {
           return (
@@ -22,12 +25,10 @@ class AccountDragons extends Component {
               <AccountDragonRow dragon={dragon} />
               <br />
               <hr />
-              {/* <br /> */}
             </div>
           )
         })
       }
-      <Link to='/'>Home</Link>
     </div>
   )
  }
