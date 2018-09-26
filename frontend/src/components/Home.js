@@ -11,12 +11,11 @@ import AccountInfo from './AccountInfo';
 import { logout } from '../actions/account';
 
 // styles imports
-import { Container, FormWrapper } from './HomeStyles';
+import { FormWrapper } from './HomeStyles';
 
 class Home extends Component {
   render() {
     return (
-      <Container>
         <FormWrapper>
           <Button onClick={this.props.logout} className='logout-button'>
             Log Out
@@ -31,7 +30,6 @@ class Home extends Component {
           <AccountInfo />
           <hr />
         </FormWrapper>
-      </Container>
     );
   }
 };
