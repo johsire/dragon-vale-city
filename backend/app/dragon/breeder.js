@@ -23,4 +23,16 @@ class Breeder {
 
     return new Dragon({ nickname: 'Nameless baby-dragon', traits: babyTraits })
   }
-}
+
+  //   pickTraits FUNCTION DOCUMENTATION:/ (traits lottery);
+  // Two incoming traits: matronTrait & patronTrait.
+  // The metronTrait & patronTrait string values are encoded.
+  // Both traits have their characters summed.
+  // Get a range by adding both character sums.
+  // Generate a random number, in that range.
+  // If the number is < the matron's character sum, pick matron.
+  // Else, pick patron.
+  static pickTrait({ matronTrait, patronTrait }) {
+
+  }
+};
