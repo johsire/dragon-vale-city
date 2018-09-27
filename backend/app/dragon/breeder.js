@@ -14,7 +14,7 @@ class Breeder {
 
       const patronTrait = patronTraits.find(
        trait => trait.traitType === traitType
-      );
+      ).traitValue;
 
       babyTraits.push({
         traitType,
@@ -42,6 +42,13 @@ class Breeder {
    const randNum = Math.floor(Math.random() * (matronTraitCharSum + patronTraitCharSum))
 
    return randNum < matronTraitCharSum ? matronTrait : patronTrait;
+  }
+
+  static charSum(string) {
+    return string.split('').reduce(
+     (sum, character) => sum += character.charCodeAt(),
+      0
+     );
   }
 };
 
