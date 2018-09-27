@@ -20,6 +20,10 @@ class PublicDragonRow extends Component {
   }).then(response => response.json())
     .then(json => {
      alert(json.message);
+
+     if (json.type !== 'error') {
+      history.push('/account-dragons');
+     }
     })
     .catch(error => alert(error.message));
  }
