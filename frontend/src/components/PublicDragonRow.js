@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap';
 // component imports
 import DragonAvatar from './DragonAvatar';
 import { BACKEND } from '../config';
+import history from '../history';
+
 
 class PublicDragonRow extends Component {
  buy = () => {
