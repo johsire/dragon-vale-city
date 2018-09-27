@@ -22,11 +22,14 @@ class PublicDragons extends Component {
   render() {
     return (
         <FormWrapper>
-          <h3>Public Dragons</h3>
-          <br />
-          <Link to='/'>Home</Link>
-          <br />
-          <br />
+        <br />
+        <Link to='/'>Home</Link>
+        <br />
+        <br />
+        <h3>Dragons Lounge</h3>
+        <br />
+        <br />
+        <br />
           {
             this.props.publicDragons.dragons.map(dragon => {
               return (

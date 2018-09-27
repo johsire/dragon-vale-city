@@ -20,10 +20,12 @@ class Home extends Component {
           <Button onClick={this.props.logout} className='logout-button'>
             Log Out
           </Button>
+        <br />
           <Link to='/account-dragons'>Account Dragons</Link>
-          <br />
           <Link to='/public-dragons'>Public Dragons</Link>
-          <h2>Dragon Stack</h2>
+        <br />
+          <h2>Dragon Vale City</h2>
+        <br />
           <Generation />
           <Dragon />
           <hr />

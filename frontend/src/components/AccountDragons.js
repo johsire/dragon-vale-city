@@ -20,9 +20,12 @@ class AccountDragons extends Component {
  render() {
   return (
       <FormWrapper>
+       <br />
+        <Link to='/'>Home</Link>
+        <br />
+        <br />
         <h3>Account Dragons</h3>
         <br />
-        <Link to='/'>Home</Link>
         <br />
         <br />
         {

@@ -67,7 +67,7 @@ router.post('/buy', (req, res, next) => {
                 throw new Error('Unauthenticated user!')
             };
 
-            if (saleValue > acccount.balance) {
+            if (saleValue > account.balance) {
                 throw new Error('Insufficient balance in your account!')
             }
 
@@ -84,7 +84,7 @@ router.post('/buy', (req, res, next) => {
 
             return Promise.all([
                 AccountTable.updateBalance({
-                    accountId: buyId, value: -saleValue
+                    accountId: buyId, value: - saleValue
                 }),
                 AccountTable.updateBalance({
                     accountId: sellerId, value: saleValue
