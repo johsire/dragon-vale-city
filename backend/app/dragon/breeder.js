@@ -22,7 +22,7 @@ class Breeder {
       });
     });
 
-    return new Dragon({ nickname: 'Nameless baby-dragon', traits: babyTraits })
+    return new Dragon({ nickname: 'Unnamed baby-dragon', traits: babyTraits })
   }
 
   //   pickTraits FUNCTION DOCUMENTATION:/ (traits lottery);

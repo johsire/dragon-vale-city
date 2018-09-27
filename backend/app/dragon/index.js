@@ -3,10 +3,11 @@ const TRAITS = require('../../data/traits.json');
 
 const DEFAULT_PROPERTIES = {
   dragonId: undefined,
-  nickname: 'nameless',
+  nickname: 'unnamed',
   generationId: undefined,
   isPublic: false,
   saleValue: 0,
+  sireValue: 0,
   get birthdate() {
      return new Date();
    },
@@ -37,7 +38,8 @@ class Dragon {
   traits,
   generationId,
   isPublic,
-  saleValue
+  saleValue,
+  sireValue
 } = {}) {
   this.dragonId = dragonId || DEFAULT_PROPERTIES.dragonId;
   this.birthdate = birthdate || DEFAULT_PROPERTIES.birthdate;
@@ -46,6 +48,7 @@ class Dragon {
   this.generationId = generationId || DEFAULT_PROPERTIES.generationId;
   this.isPublic = isPublic || DEFAULT_PROPERTIES.isPublic;
   this.saleValue = saleValue || DEFAULT_PROPERTIES.saleValue;
+  this.sireValue = sireValue || DEFAULT_PROPERTIES.sireValue;
   }
 };
 
