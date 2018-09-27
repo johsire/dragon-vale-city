@@ -1,4 +1,5 @@
 
+const base64 = require('base-64');
 const Dragon = require('./index');
 
 class Breeder {
@@ -35,8 +36,8 @@ class Breeder {
   static pickTrait({ matronTrait, patronTrait }) {
    if (matronTrait === patronTrait) return matronTrait;
 
-   const matronTraitCharSum = Breeder.charSum(matronTrait);
-   const patronTraitCharSum = Breeder.charSum(patronTrait);
+   const matronTraitCharSum = Breeder.charSum(base64.encode(matronTrait));
+   const patronTraitCharSum = Breeder.charSum(base64.encode(patronTrait));
 
    const randNum = Math.floor(Math.random() * (matronTraitCharSum + patronTraitCharSum))
 
