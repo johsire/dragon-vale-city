@@ -18,24 +18,24 @@ class PublicDragonRow extends Component {
     });
   }
 
- buy = () => {
-  const { dragonId, saleValue } = this.props.dragon;
+  buy = () => {
+    const { dragonId, saleValue } = this.props.dragon;
 
-  fetch(`${BACKEND.ADDRESS}/dragon/buy`, {
-    method: 'POST',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ dragonId, saleValue })
-  }).then(response => response.json())
-    .then(json => {
-     alert(json.message);
+    fetch(`${BACKEND.ADDRESS}/dragon/buy`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dragonId, saleValue })
+    }).then(response => response.json())
+      .then(json => {
+        alert(json.message);
 
-     if (json.type !== 'error') {
-      history.push('/account-dragons');
-     }
-  })
-    .catch(error => alert(error.message));
- }
+        if (json.type !== 'error') {
+          history.push('/account-dragons');
+        }
+      })
+      .catch(error => alert(error.message));
+  }
 
  render() {
   return (

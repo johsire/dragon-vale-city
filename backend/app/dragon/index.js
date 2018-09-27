@@ -3,7 +3,7 @@ const TRAITS = require('../../data/traits.json');
 
 const DEFAULT_PROPERTIES = {
   dragonId: undefined,
-  nickname: 'unnamed',
+  nickname: 'unnamed dragon',
   generationId: undefined,
   isPublic: false,
   saleValue: 0,
