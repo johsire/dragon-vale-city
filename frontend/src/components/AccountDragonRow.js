@@ -9,7 +9,7 @@ class AccountDragonRow extends Component {
     nickname: this.props.dragon.nickname,
     isPublic: this.props.dragon.isPublic,
     saleValue: this.props.dragon.saleValue,
-    sireValue: this.props.dragons.sireValue,
+    sireValue: this.props.dragon.sireValue,
     edit: false
     // delete: false
   };
@@ -29,7 +29,7 @@ class AccountDragonRow extends Component {
   updateIsPublic = event => {
     this.setState({ isPublic: event.target.checked })
   };
-    
+
   // deleteNickname = event => {
   //   this.setState({ nickname: event.target.value })
   // };
@@ -87,7 +87,7 @@ class AccountDragonRow extends Component {
           disabled={!this.state.edit}
         />
         <br />
-        <DragonAvatar dragon={this.props.dragon} /> 
+        <DragonAvatar dragon={this.props.dragon} />
         <div>
           <span>
             Sale Value: {' '}
@@ -96,20 +96,22 @@ class AccountDragonRow extends Component {
               disabled={!this.state.edit}
               value={this.state.saleValue}
               onChange={this.updateSaleValue}
+              className='accounr-dragon-row-input'
             />
           </span>{' '}
           <span>
             sireValue:{' '}
             <input
-              type='number',
+              type='number'
               disabled={!this.state.edit}
               value={this.state.sireValue}
               onChange={this.updateSireValue}
+              className='accounr-dragon-row-input'
             />
           </span>
           <span>
             Public:{' '}
-            <input 
+            <input
               type='checkbox'
               disabled={!this.state.edit}
               checked={this.state.isPublic}
@@ -127,7 +129,7 @@ class AccountDragonRow extends Component {
 
  // {
         //   this.state.delete ? this.SaveButton : this.DeleteButton
-        // } 
+        // }
 
           // onChange={this.deleteNickname}
 
