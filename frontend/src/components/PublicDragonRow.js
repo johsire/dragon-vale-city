@@ -15,7 +15,7 @@ class PublicDragonRow extends Component {
   fetch(`${BACKEND.ADDRESS}/dragon/buy`, {
     method: 'POST',
     credentials: 'include',
-    headers: { 'CONTENT_TYPE': 'application/json' },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ dragonId, saleValue })
   }).then(response => response.json())
     .then(json => {
@@ -24,7 +24,7 @@ class PublicDragonRow extends Component {
      if (json.type !== 'error') {
       history.push('/account-dragons');
      }
-    })
+  })
     .catch(error => alert(error.message));
  }
 
