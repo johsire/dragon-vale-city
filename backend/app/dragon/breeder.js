@@ -52,12 +52,13 @@ class Breeder {
   }
 };
 
-const fooby = new Dragon();
-const gooby = new Dragon();
-console.log(fooby, 'Fooby<<==xx')
-console.log(gooby, 'Gooby<<==xx')
+// pickTraits function test code:
+// const fooby = new Dragon();
+// const gooby = new Dragon();
+// console.log(fooby, 'Fooby<<==xx')
+// console.log(gooby, 'Gooby<<==xx')
 
-const foogooby = Breeder.breedDragon({ matron: fooby, patron: gooby });
-console.log(foogooby, 'FooGooBy<<==xxx')
+// const foogooby = Breeder.breedDragon({ matron: fooby, patron: gooby });
+// console.log(foogooby, 'FooGooBy<<==xxx')
 
 module.exports = Breeder;
