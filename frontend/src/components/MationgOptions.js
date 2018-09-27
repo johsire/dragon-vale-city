@@ -1,10 +1,33 @@
 
 // Dev-dependencies imports
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
+import { Button } from 'react-bootstrap';
+
+// Component imports
+import { BACKEND }  from '../config';
+import history from '../history';
 
 class MatingOptions extends Component {
+ mate = ({ matronDragonId, patronDragonId }) => () => {
+  fetch(`${BACKEND.ADDRESS}/dragon/mate`, {
+   mathod: 'POST',
+   credentials: 'include',
+   headers: { 'Content-Type': 'application/json' },
+   body: JSON.stringify({ matronDragonId, patronDragonId })
+  })
+  .then(response => response.json())
+  .then(json => {
+   alert(json.message);
+
+   if(json.type !== 'error') {
+    history.push('/account-dragons');
+    }
+  })
+  .catch(error => alert(error.message));
+}
+
+
  render() {
   return (
    <div>
@@ -15,7 +38,12 @@ class MatingOptions extends Component {
 
       return (
        <span key={dragonId}>
-        <Button>
+        <Button onClick={
+         this.mate({
+          patronDragonId: this.props.patronDragonId,
+          matronDragonId: dragon.dragonId
+         })
+        }>
          Gen{generationId}.Id{dragonId}. {nickname}
         </Button>
         {' '}
