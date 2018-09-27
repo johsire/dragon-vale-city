@@ -33,6 +33,15 @@ class Breeder {
   // If the number is < the matron's character sum, pick matron.
   // Else, pick patron.
   static pickTrait({ matronTrait, patronTrait }) {
+   if (matronTrait === patronTrait) return matronTrait;
 
+   const matronTraitCharSum = Breeder.charSum(matronTrait);
+   const patronTraitCharSum = Breeder.charSum(patronTrait);
+
+   const randNum = Math.floor(Math.random() * (matronTraitCharSum + patronTraitCharSum))
+
+   return randNum < matronTraitCharSum ? matronTrait : patronTrait;
   }
 };
+
+module.exports = Breeder;
