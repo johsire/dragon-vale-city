@@ -24,7 +24,7 @@ class AccountDragons extends Component {
         <Link to='/'>Home</Link>
         <br />
         <br />
-        <h3>Account Dragons</h3>
+        <h3>My Dragons Lounge</h3>
         <br />
         <br />
         <br />

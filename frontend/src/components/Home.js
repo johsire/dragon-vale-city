@@ -11,7 +11,7 @@ import AccountInfo from './AccountInfo';
 import { logout } from '../actions/account';
 
 // styles imports
-import { FormWrapper } from './HomeStyles';
+import { FormWrapper, Nav } from './HomeStyles';
 
 class Home extends Component {
   render() {
@@ -21,8 +21,10 @@ class Home extends Component {
             Log Out
           </Button>
         <br />
+        <Nav>
           <Link to='/account-dragons'>Account Dragons</Link>
-          <Link to='/public-dragons'>Public Dragons</Link>
+          <Link to='/public-dragons'>Public Dragons</Link>    
+        </Nav>
         <br />
           <h2>Dragon Vale City</h2>
         <br />

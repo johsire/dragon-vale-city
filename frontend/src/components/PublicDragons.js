@@ -23,10 +23,11 @@ class PublicDragons extends Component {
     return (
         <FormWrapper>
         <br />
-        <Link to='/'>Home</Link>
+          <Link to='/'>Home</Link>
         <br />
         <br />
-        <h3>Dragons Lounge</h3>
+        <h3>Dragon Vale City</h3>
+        <h3>Economy</h3>
         <br />
         <br />
         <br />

@@ -10,16 +10,16 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 280px;
-  opacity: 0.7;
+  ${'' /* opacity: 0.7; */}
 `;
 
 export const FormWrapper = styled.div`
-   max-width: 600px;
+   max-width: 650px;
    background-color: #cc5f03;
    display: grid;
    margin: 0 auto;
    text-align: center;
    padding: 30px;
    border-radius: 10px;
-   opacity: 0.7;
+   opacity: 0.6;
 `;

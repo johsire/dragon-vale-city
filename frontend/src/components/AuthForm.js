@@ -52,6 +52,7 @@ get Error() {
     <Container>
       <FormWrapper>
        <h2>Dragon Vale City</h2>
+       <br />
         <FormGroup>
           <FormControl 
             type='text' 
@@ -68,12 +69,14 @@ get Error() {
             onChange={ this.updatePassword }
           />
         </FormGroup>
+        <br />
         <div>
           <Button onClick={ this.login }>Log In</Button>
-          <span> or </span>
+          <span>   or   </span>
           <Button onClick={ this.signup }>Sign Up</Button>
+          <br />
+          <br />
         </div>
-        <br />
         { this.Error }
         </FormWrapper>
      </Container>

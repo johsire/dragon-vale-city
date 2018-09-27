@@ -11,3 +11,10 @@ export const FormWrapper = styled.div`
    border-radius: 10px;
    color: black;
 `;
+
+
+export const Nav = styled.div `
+  color: black;
+  text-decoration: none;
+  text-align: left;
+`;
