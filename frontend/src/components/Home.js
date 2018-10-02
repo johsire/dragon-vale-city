@@ -18,12 +18,13 @@ class Home extends Component {
     return (
         <FormWrapper>
           <Button onClick={this.props.logout} className='logout-button'>
-            Log Out
+            LOG OUT
           </Button>
         <br />
         <Nav>
-          <Link to='/account-dragons'>Account Dragons</Link>
-          <Link to='/public-dragons'>Public Dragons</Link>    
+          <Link to='/'>HOME</Link>
+          <Link to='/account-dragons'>LOUNGE</Link>
+          <Link to='/public-dragons'>ECONOMY</Link>    
         </Nav>
         <br />
           <h2>Dragon Vale City</h2>

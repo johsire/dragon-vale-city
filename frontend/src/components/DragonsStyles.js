@@ -24,3 +24,9 @@ export const FormWrapper = styled.div`
    ${'' /* opacity: 0.7; */}
    color: black;   
 `;
+
+export const Nav = styled.div `
+  color: black;
+  text-decoration: none;
+  text-align: left;
+`;

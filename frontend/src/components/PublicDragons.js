@@ -10,7 +10,7 @@ import { fetchAccountDragons } from '../actions/accountDragons';
 import PublicDragonRow from './PublicDragonRow';
 
 // style imports
-import { FormWrapper } from './DragonsStyles';
+import { FormWrapper, Nav } from './DragonsStyles';
 
 
 class PublicDragons extends Component {
@@ -23,7 +23,11 @@ class PublicDragons extends Component {
     return (
         <FormWrapper>
         <br />
-          <Link to='/'>Home</Link>
+        <Nav>
+          <Link to='/'>HOME</Link>
+          <Link to='/account-dragons'>LOUNGE</Link>
+          <Link to='/public-dragons'>ECONOMY</Link>    
+        </Nav>
         <br />
         <br />
         <h3>Dragon Vale City</h3>

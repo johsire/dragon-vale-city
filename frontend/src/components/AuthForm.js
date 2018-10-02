@@ -57,7 +57,7 @@ get Error() {
           <FormControl 
             type='text' 
             value={ this.state.username }
-            placeholder='username'
+            placeholder='Username'
             onChange={ this.updateUsername }
           />
         </FormGroup>
@@ -65,15 +65,15 @@ get Error() {
           <FormControl 
             type='password'
             value={ this.state.password }
-            placeholder='password'
+            placeholder='Password'
             onChange={ this.updatePassword }
           />
         </FormGroup>
         <br />
         <div>
-          <Button onClick={ this.login }>Log In</Button>
+          <Button onClick={ this.login }>LOG IN</Button>
           <span>   or   </span>
-          <Button onClick={ this.signup }>Sign Up</Button>
+          <Button onClick={ this.signup }>SIGN UP</Button>
           <br />
           <br />
         </div>

@@ -23,3 +23,10 @@ export const FormWrapper = styled.div`
    border-radius: 10px;
    opacity: 0.6;
 `;
+
+export const Nav = styled.div `
+  color: black;
+  text-decoration: none;
+  text-align: left;
+`;
+
