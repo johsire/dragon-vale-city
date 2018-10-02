@@ -12,7 +12,7 @@ import { logout } from '../actions/account';
 import PublicDragonRow from './PublicDragonRow';
 
 // style imports
-import { FormWrapper, Nav } from './DragonsStyles';
+import { FormWrapper, Nav } from './styles/DragonsStyles';
 
 
 class PublicDragons extends Component {

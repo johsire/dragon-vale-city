@@ -11,7 +11,7 @@ import { fetchAccountDragons } from '../actions/accountDragons';
 import AccountDragonRow from './AccountDragonRow';
 
 // style imports
-import { FormWrapper, Nav } from './DragonsStyles';
+import { FormWrapper, Nav } from './styles/DragonsStyles';
 
 
 class AccountDragons extends Component {

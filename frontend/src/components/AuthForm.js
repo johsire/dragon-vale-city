@@ -8,7 +8,7 @@ import { signup, login } from '../actions/account';
 import fetchStates from '../reducers/fetchStates';
 
 // Style Imports
-import { Container, FormWrapper } from './AuthFormStyles';
+import { Container, FormWrapper } from './styles/AuthFormStyles';
 
 
 class AuthForm extends Component {
