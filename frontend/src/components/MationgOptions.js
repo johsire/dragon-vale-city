@@ -11,7 +11,7 @@ import history from '../history';
 class MatingOptions extends Component {
  mate = ({ matronDragonId, patronDragonId }) => () => {
   fetch(`${BACKEND.ADDRESS}/dragon/mate`, {
-   mathod: 'POST',
+   method: 'POST',
    credentials: 'include',
    headers: { 'Content-Type': 'application/json' },
    body: JSON.stringify({ matronDragonId, patronDragonId })

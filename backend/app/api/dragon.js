@@ -107,18 +107,20 @@ router.post('/mate', (req, res, next) => {
   const { matronDragonId, patronDragonId } = req.body;
 
   if (matronDragonId === patronDragonId) {
-    throw new Error('Cannot make dragon-baby with the same dragon-parent!')
+    throw new Error('Cannot make baby-dragons from the same dragon-family!');
   }
 
-  let matronDragon, patronDragon;
+  let matronDragon, patronDragon, patronSireValue;
+  let matronAccountId, patronAccountId;
 
   getDragonWithTraits({ dragonId: patronDragonId })
     .then(dragon => {
       if (!dragon.isPublic) {
-        throw new Error('Selected dragon must be in the Economy!')
-      };
+        throw new Error('Selected dragon must be in the Economy');
+      }
 
       patronDragon = dragon;
+      patronSireValue = dragon.sireValue;
 
       return getDragonWithTraits({ dragonId: matronDragonId })
     })
@@ -128,10 +130,10 @@ router.post('/mate', (req, res, next) => {
       return authenticatedAccount({ sessionString: req.cookies.sessionString });
     })
     .then(({ account, authenticated }) => {
-      if (!authenticated) throw new Error('Unauthenticated user!')
+      if (!authenticated) throw new Error('Unauthenticated user!');
 
       if (patronSireValue > account.balance) {
-        throw new Error('Sorry, sire value exceedes balance')
+        throw new Error('Sire value exceedes account balance!');
       }
 
       matronAccountId = account.id;
@@ -142,7 +144,7 @@ router.post('/mate', (req, res, next) => {
       patronAccountId = accountId;
 
       if (matronAccountId === patronAccountId) {
-        throw new Error('Cannot breed your own dragons!')
+        throw new Error('Cannot breed your own dragons!');
       }
 
       const dragon = Breeder.breedDragon({ matron: matronDragon, patron: patronDragon });
@@ -160,7 +162,7 @@ router.post('/mate', (req, res, next) => {
         AccountDragonTable.storeAccountDragon({
           dragonId, accountId: matronAccountId
         })
-      ]).then(() => res.json({ message: 'Congraculations on your new baby dragon!'}))
+      ]).then(() => res.json({ message: 'Congraculations on your new baby dragon!' }))
         .catch(error => next(error));
     });
 });
