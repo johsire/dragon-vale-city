@@ -20,14 +20,16 @@ class Home extends Component {
           <Button onClick={this.props.logout} className='logout-button'>
             LOG OUT
           </Button>
-        <br />
         <Nav>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
           <Link to='/public-dragons'>ECONOMY</Link>    
         </Nav>
         <br />
-          <h2>Dragon Vale City</h2>
+        <br />
+          <h3>City Population Tracker</h3>
+        <br />
+        <br />
         <br />
           <Generation />
           <Dragon />
@@ -38,11 +40,5 @@ class Home extends Component {
     );
   }
 };
-
-// // Debugin/ Testing Code:
-// fetch('http://localhost:3000/account/dragons', {
-//   credentials: 'include'
-// }).then(response => response.json())
-//   .then(json => console.log('account dragons', json))
 
 export default connect(null, { logout })(Home);

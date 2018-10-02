@@ -3,8 +3,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 // Components imports
+import { logout } from '../actions/account';
 import { fetchAccountDragons } from '../actions/accountDragons';
 import AccountDragonRow from './AccountDragonRow';
 
@@ -20,7 +22,9 @@ class AccountDragons extends Component {
  render() {
   return (
       <FormWrapper>
-       <br />
+        <Button onClick={this.props.logout} className='logout-button'>
+            LOG OUT
+          </Button>
         <Nav>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
@@ -50,5 +54,5 @@ class AccountDragons extends Component {
 
 export default connect(
   ({ accountDragons }) => ({ accountDragons }),
-  { fetchAccountDragons }
+  { fetchAccountDragons, logout }
 )(AccountDragons);

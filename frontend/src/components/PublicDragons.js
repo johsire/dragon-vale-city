@@ -3,10 +3,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 // Component imports
 import { fetchPublicDragons } from '../actions/publicDragons';
 import { fetchAccountDragons } from '../actions/accountDragons';
+import { logout } from '../actions/account';
 import PublicDragonRow from './PublicDragonRow';
 
 // style imports
@@ -22,7 +24,9 @@ class PublicDragons extends Component {
   render() {
     return (
         <FormWrapper>
-        <br />
+          <Button onClick={this.props.logout} className='logout-button'>
+            LOG OUT
+          </Button>
         <Nav>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
@@ -30,8 +34,8 @@ class PublicDragons extends Component {
         </Nav>
         <br />
         <br />
-        <h3>Dragon Vale City</h3>
-        <h3>Economy</h3>
+        <h3>City Economy</h3>
+        {/* <h3>Economy</h3> */}
         <br />
         <br />
         <br />
@@ -52,5 +56,5 @@ class PublicDragons extends Component {
 
 export default connect(
   ({ publicDragons }) => ({ publicDragons }),
-  { fetchPublicDragons, fetchAccountDragons }
+  { fetchPublicDragons, fetchAccountDragons, logout }
 )(PublicDragons);
