@@ -11,7 +11,7 @@ import { fetchAccountDragons } from '../actions/accountDragons';
 import AccountDragonRow from './AccountDragonRow';
 
 // style imports
-import { FormWrapper, Nav } from './styles/DragonsStyles';
+import { FormWrapper } from './styles/DragonsStyles';
 
 
 class AccountDragons extends Component {
@@ -25,11 +25,9 @@ class AccountDragons extends Component {
         <Button onClick={this.props.logout} className='logout-button'>
             LOG OUT
           </Button>
-        <Nav>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
           <Link to='/public-dragons'>ECONOMY</Link>    
-        </Nav>
         <br />
         <br />
         <h3>My Dragons Lounge</h3>

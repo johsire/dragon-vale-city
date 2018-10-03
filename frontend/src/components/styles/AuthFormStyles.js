@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import BackgroundImage from '../assets/bg-wrapper.jpg';
+import BackgroundImage from '../../assets/bg-wrapper.jpg';
 
 export const Container = styled.div`
   width: 100%;

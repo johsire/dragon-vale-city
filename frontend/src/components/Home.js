@@ -17,20 +17,20 @@ import { Container, Nav } from './styles/HomeStyles';
 class Home extends Component {
   render() {
     return (
-      <Container>
-          <Button onClick={this.props.logout} className='logout-button'>
+      <div>
+        <Button onClick={this.props.logout} className='logout-button'>
             LOG OUT
           </Button>
-        {/* <Nav> */}
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
-          <Link to='/public-dragons'>ECONOMY</Link>    
-        {/* </Nav> */}
+          <Link to='/public-dragons'>ECONOMY</Link>  
+          <Container>  
           <AccountInfo />
           <h3>City Population Tracker</h3>
           <Generation />
           <Dragon />
-      </Container>  
+      </Container> 
+      </div> 
     );
   }
 };

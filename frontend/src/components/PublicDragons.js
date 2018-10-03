@@ -12,7 +12,7 @@ import { logout } from '../actions/account';
 import PublicDragonRow from './PublicDragonRow';
 
 // style imports
-import { FormWrapper, Nav } from './styles/DragonsStyles';
+import { FormWrapper } from './styles/DragonsStyles';
 
 
 class PublicDragons extends Component {
@@ -27,11 +27,9 @@ class PublicDragons extends Component {
           <Button onClick={this.props.logout} className='logout-button'>
             LOG OUT
           </Button>
-        <Nav>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
           <Link to='/public-dragons'>ECONOMY</Link>    
-        </Nav>
         <br />
         <br />
         <h3>City Economy</h3>
