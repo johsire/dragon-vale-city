@@ -11,26 +11,28 @@ import AccountInfo from './AccountInfo';
 import { logout } from '../actions/account';
 
 // styles imports
-import { Container, Nav } from './styles/HomeStyles';
+import { Container, TextWrapper } from './styles/HomeStyles';
 
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <Button onClick={this.props.logout} className='logout-button'>
-            LOG OUT
-          </Button>
+      <Container>
+      <Button onClick={this.props.logout} className='logout-button'>LOG OUT</Button>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
-          <Link to='/public-dragons'>ECONOMY</Link>  
-          <Container>  
-          <AccountInfo />
+          <Link to='/public-dragons'>ECONOMY</Link>
+           <AccountInfo />
+        <TextWrapper>
           <h3>City Population Tracker</h3>
+          <br />
+          <br />
           <Generation />
           <Dragon />
+        </TextWrapper>
       </Container> 
-      </div> 
+      </div>
     );
   }
 };

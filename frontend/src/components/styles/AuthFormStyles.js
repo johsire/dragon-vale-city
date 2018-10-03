@@ -4,12 +4,12 @@ import BackgroundImage from '../../assets/bg-wrapper.jpg';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
   background-image: url(${BackgroundImage});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 280px;
+  height: 100vh;
   ${'' /* opacity: 0.7; */}
 `;
 
@@ -19,14 +19,7 @@ export const FormWrapper = styled.div`
    display: grid;
    margin: 0 auto;
    text-align: center;
-   padding: 30px;
+   padding: 20px;
    border-radius: 10px;
-   opacity: 0.6;
+   opacity: 0.7;
 `;
-
-export const Nav = styled.div `
-  color: black;
-  text-decoration: none;
-  text-align: left;
-`;
-

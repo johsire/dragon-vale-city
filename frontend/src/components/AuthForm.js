@@ -71,9 +71,9 @@ get Error() {
         </FormGroup>
         <br />
         <div>
-          <Button onClick={ this.login }>LOG IN</Button>
+          <Button onClick={ this.login }>Log In</Button>
           <span>   or   </span>
-          <Button onClick={ this.signup }>SIGN UP</Button>
+          <Button onClick={ this.signup }>Sign Up</Button>
           <br />
           <br />
         </div>

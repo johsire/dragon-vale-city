@@ -9,7 +9,7 @@ html, body {
 .logout-button {
  position: absolute;
  right: 30px;
- top: 30px;
+ top: 15px;
 }
 
 .account-dragon-row-input {
@@ -42,8 +42,31 @@ html, body {
   margin-right: 15px;
 }
 
-a {
-  color: yellowgreen;
+/* a {
+  color: orange;
   text-decoration: none;
   margin: 5px;
+} */
+
+a:link {
+  color: orange;
+  margin: 10px;
+}
+
+a:visited {
+  background-color: cyan;
+}
+
+a:hover {
+  background-color: grey;
+}
+
+a:active {
+  background-color: yellow;
+} 
+
+.acct-info {
+  color: whitesmoke;
+  padding: 50px 0px 25px 30px;
+  font-size: smaller;
 }
