@@ -51,6 +51,9 @@ html, body {
 a:link {
   color: orange;
   margin: 10px;
+  position: relative;
+  top: 20px;
+  left: 50px;
 }
 
 a:visited {
