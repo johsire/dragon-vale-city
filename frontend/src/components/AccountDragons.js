@@ -9,9 +9,10 @@ import { Button } from 'react-bootstrap';
 import { logout } from '../actions/account';
 import { fetchAccountDragons } from '../actions/accountDragons';
 import AccountDragonRow from './AccountDragonRow';
+import AccountInfo from './AccountInfo';
 
 // style imports
-import { FormWrapper } from './styles/DragonsStyles';
+import { Container, TextWrapper } from './styles/AcctDragonStyles';
 
 
 class AccountDragons extends Component {
@@ -21,15 +22,15 @@ class AccountDragons extends Component {
 
  render() {
   return (
-      <FormWrapper>
+      <Container>
         <Button onClick={this.props.logout} className='logout-button'>
             LOG OUT
           </Button>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
-          <Link to='/public-dragons'>ECONOMY</Link>    
-        <br />
-        <br />
+          <Link to='/public-dragons'>ECONOMY</Link>
+          <AccountInfo />
+      <TextWrapper>
         <h3>My Dragons Lounge</h3>
         <br />
         <br />
@@ -40,12 +41,14 @@ class AccountDragons extends Component {
               <div key={dragon.dragonId}>
                 <AccountDragonRow dragon={dragon} />
                 <br />
-                <hr />
+                <br />
+                <br />
               </div>
             )
           })
         }
-      </FormWrapper>
+      </TextWrapper>
+      </Container>
   )
  }
 };

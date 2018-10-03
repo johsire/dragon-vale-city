@@ -17,7 +17,7 @@ export const FormWrapper = styled.div`
    max-width: 650px;
    background-color: #cc5f03;
    display: grid;
-   margin: 0 auto;
+   margin: -25px auto;
    text-align: center;
    padding: 20px;
    border-radius: 10px;

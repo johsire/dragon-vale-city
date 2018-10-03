@@ -17,7 +17,6 @@ import { Container, TextWrapper } from './styles/HomeStyles';
 class Home extends Component {
   render() {
     return (
-      <div>
       <Container>
       <Button onClick={this.props.logout} className='logout-button'>LOG OUT</Button>
           <Link to='/'>HOME</Link>
@@ -32,7 +31,6 @@ class Home extends Component {
           <Dragon />
         </TextWrapper>
       </Container> 
-      </div>
     );
   }
 };
