@@ -12,6 +12,7 @@ import { logout } from '../actions/account';
 
 // styles imports
 import { Container, TextWrapper } from './styles/HomeStyles';
+import '.././index.css';
 
 
 class Home extends Component {

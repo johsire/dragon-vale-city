@@ -9,6 +9,8 @@ import fetchStates from '../reducers/fetchStates';
 
 // Style Imports
 import { Container, FormWrapper } from './styles/AuthFormStyles';
+// import './styles/responsive.css';
+// import '.././index.css';
 
 
 class AuthForm extends Component {
@@ -49,7 +51,7 @@ get Error() {
 
   render() {
     return (
-    <Container>
+    <Container className="container">
       <FormWrapper>
        <h2>Dragon Vale City</h2>
        <br />

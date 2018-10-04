@@ -7,7 +7,6 @@ export const Container = styled.div`
   height: 100vh;
   background-image: url(${BackgroundImage});
   ${'' /* opacity: 0.7; */}
-  background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
