@@ -41,60 +41,37 @@ engine.start();
 //  engine.stop();
 // }, 20000);
 
+
+// ===========>>>>>>> NODEMAILER SET-UP <<<<<<==================== \\
+
+app.post('api/send', (req, res) => {
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    auth: {
+      user: 'lkjnr01@gmail.com',
+      pass: ''
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+  let { text } = req.body;
+
+  let mailOptions = {
+    from: '"Lk Jnr" <lkjnr@gmail.com',
+    to: 'rasjoh@gmail.com',
+    subject: 'Dragon Purchase Confirmation',
+    text: 'Congracualations! You are now a proud owner of a majestic dragon!'
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+
+    res.render("contact", { msg: "Success! Email sent!" });
+  });
+});
+
 module.exports = app;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const Generation = require('./generation');
-
-// // an instance of the generation class & save it to a lower case genertn variable:
-// const generation = new Generation();
-// console.log(generation, 'this is the NEW generation sonnnn!')
-
-// const gooby = generation.newDragon();
-// console.log(gooby, 'heeeyy ittsss goooobbbbyyyy!!!')
-
-// setTimeout(() => {
-//   const mimar = generation.newDragon();
-//   console.log(mimar, 'mimmmmaaarr....yaaayyyyy!!')
-// }, 15000);
-// ----------------------------------------------------------------------------------------------------------
-// const Dragon = require('./dragon');
-
-// const fooey = new Dragon({ 
-//   birthdate: new Date(), 
-//   nickname: 'fooey' 
-// });
-
-// const baloo = new Dragon({ 
-//   birthdate: new Date(), 
-//   // nickname: 'baloo' 
-//   traits: [{ traitType: 'backgroundColor', traitValue: 'green'}]
-// });
-
-// const mimar = new Dragon();
-
-// setTimeout(() => {
-// const gooby = new Dragon();
-// console.log('gooby', gooby);
-// }, 3000);
-
-
-// console.log('fooey', fooey);
-// console.log('baloo', baloo);
-// console.log('mimar', mimar);
