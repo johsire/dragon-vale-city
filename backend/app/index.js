@@ -1,5 +1,6 @@
 
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -8,7 +9,6 @@ const GenerationEngine = require('./generation/engine');
 const dragonRouter = require('./api/dragon');
 const generationRouter = require('./api/generation');
 const accountRouter = require('./api/account');
-
 
 const app = express();
 
@@ -23,10 +23,7 @@ app.locals.engine = engine;
 // our backend server now has the same origin as the frontend: - 
 // - thus our server is implementing the same origin policy: eliminating crossing the origins:
 
-
 // app.use(cors({ origin: 'http://localhost:1234', credentials: true }));
-// console.log(process.env.FRONTEND_ADDRESS)
-
 app.use(cors({ origin: process.env.FRONTEND_ADDRESS, credentials: true }));
 app.use(bodyParser.json());
 app.use(cookieParser())
@@ -82,6 +79,10 @@ app.post('api/send', (req, res) => {
   });
 });
 
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 const port = 3005;
 
