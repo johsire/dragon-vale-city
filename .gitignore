@@ -1,3 +1,6 @@
 dist
 .cache
 .vscode
+.env
+.env.prod
+.gitignore

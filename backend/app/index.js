@@ -1,6 +1,7 @@
 
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const GenerationEngine = require('./generation/engine');
@@ -16,10 +17,13 @@ const engine = new GenerationEngine();
 // bind obj to the actual express applictn:
 app.locals.engine = engine;
 
+const { FRONTEND_ADDRESS, BACKEND_ADDRESS } = process.env;
+
 // Cross Origin Resource Sharing:
 // our backend server now has the same origin as the frontend: - 
 // - thus our server is implementing the same origin policy: eliminating crossing the origins:
-app.use(cors({ origin: 'http://localhost:1234', credentials: true }));
+// app.use(cors({ origin: 'http://localhost:1234', credentials: true }));
+app.use(cors({ origin: process.env.FRONTEND_ADDRESS, credentials: false }));
 app.use(bodyParser.json());
 app.use(cookieParser())
 app.use('/account', accountRouter);

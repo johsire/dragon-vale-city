@@ -114,9 +114,9 @@ a:active {
     }
 
     /* Custom, iPhone Retina */ 
-    @media only screen and (max-width : 320px) {
+    /* @media only screen and (max-width : 320px) {
       body {
         color: blue;
         background-image: url(../../assets/bg-wrapper.jpg);
       }
-    }
+    } */

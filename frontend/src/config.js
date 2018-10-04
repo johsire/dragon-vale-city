@@ -1,6 +1,7 @@
 
+
 const BACKEND = {
- ADDRESS: 'http://localhost:3000'
+ ADDRESS: process.env.BACKEND_ADDRESS
 };
 
 export { BACKEND };
