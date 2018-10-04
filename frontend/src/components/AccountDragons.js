@@ -29,7 +29,7 @@ class AccountDragons extends Component {
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
           <Link to='/public-dragons'>ECONOMY</Link>
-          <AccountInfo />
+      <AccountInfo />
       <TextWrapper>
         <h3>My Dragons Lounge</h3>
         <br />

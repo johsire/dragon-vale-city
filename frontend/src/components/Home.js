@@ -26,7 +26,6 @@ class Home extends Component {
         <TextWrapper>
           <h3>City Population Tracker</h3>
           <br />
-          <br />
           <Generation />
           <Dragon />
         </TextWrapper>

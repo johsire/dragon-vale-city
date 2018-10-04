@@ -1,15 +1,18 @@
 
 import styled from 'styled-components';
-import BackgroundImage from '../../assets/homepage-bg.jpg'
+import BackgroundImage from '../../assets/economy-bg.jpg';
 
 export const Container = styled.div`
   width: 100%;
+  height: 100vh;
   background-image: url(${BackgroundImage});
+  ${'' /* opacity: 0.7; */}
+  background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  ${'' /* opacity: 0.7; */}
+  position: relative;
+  overflow: scroll;
 `;
 
 export const TextWrapper = styled.div`
@@ -21,5 +24,5 @@ export const TextWrapper = styled.div`
    text-align: center;
    ${'' /* padding: 60px; */}
    border-radius: 5px;
-   opacity: 0.6;
+   opacity: .7;
 `;

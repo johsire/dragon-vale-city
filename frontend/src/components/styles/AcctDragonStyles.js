@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
-import BackgroundImage from '../../assets/lounge-bg.png';
-// import BackgroundImage from '../../assets/lounge2-bg.jpg';
+// import BackgroundImage from '../../assets/lounge-bg.png';
+import BackgroundImage from '../../assets/lounge2-bg.jpg';
 
 export const Container = styled.div`
   width: 100%;
@@ -25,5 +25,5 @@ export const TextWrapper = styled.div`
    text-align: center;
    ${'' /* padding: 60px; */}
    border-radius: 5px;
-   opacity: .75;
+   opacity: .6;
 `;
