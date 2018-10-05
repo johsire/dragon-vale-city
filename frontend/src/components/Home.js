@@ -18,9 +18,8 @@ import '.././index.css';
 class Home extends Component {
   render() {
     return (
-      <div className="hero-wrapper">
       <Container>
-         <Button onClick={this.props.logout} className='logout-button'>LOG OUT</Button>
+      <Button onClick={this.props.logout} className='logout-button'>LOG OUT</Button>
           <Link to='/'>HOME</Link>
           <Link to='/account-dragons'>LOUNGE</Link>
           <Link to='/public-dragons'>ECONOMY</Link>
@@ -32,7 +31,6 @@ class Home extends Component {
           <Dragon />
         </TextWrapper>
       </Container> 
-      </div>
     );
   }
 };
