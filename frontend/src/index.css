@@ -86,32 +86,32 @@ a:active {
 /*==========  Non-Mobile First Method  ==========*/
 
     /* Large Devices, Wide Screens */
-    @media only screen and (max-width : 1200px) {
+    /* @media only screen and (max-width : 1200px) {
       body {
         color: white;
       }
-    }
+    } */
 
     /* Medium Devices, Desktops */
-    @media only screen and (max-width : 992px) {
+    /* @media only screen and (max-width : 992px) {
       body {
         color: yellow;
       }
-    }
+    } */
 
     /* Small Devices, Tablets */
-    @media only screen and (max-width : 768px) {
+    /* @media only screen and (max-width : 768px) {
       body {
         color: rgb(152, 236, 26);
       }
-    }
+    } */
 
     /* Extra Small Devices, Phones */ 
-    @media only screen and (max-width : 480px) {
+    /* @media only screen and (max-width : 480px) {
       body {
         color: violet;
       }
-    }
+    } */
 
     /* Custom, iPhone Retina */ 
     /* @media only screen and (max-width : 320px) {
