@@ -4,4 +4,4 @@
 
 // const port = 3005;
 
-// app.listen(3005, () => console.log(`Server listening on port: ${port}`));
+// app.listen(port, () => console.log(`server listening on port ${port}`));
